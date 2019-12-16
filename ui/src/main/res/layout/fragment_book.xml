@@ -4,16 +4,241 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="co.gotoinc.ui.BookFragment">
+    tools:context="co.gotoinc.ui.view.book_flight.BookFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/originTitle"
+        style="@style/BookFlightFieldTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/main_space"
+        android:layout_marginTop="@dimen/space_x_1_5"
+        android:text="@string/origin_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/origin"
+        style="@style/BookFlightFieldSelectableField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/main_space"
+        app:layout_constraintStart_toStartOf="@+id/originTitle"
+        app:layout_constraintTop_toBottomOf="@+id/originTitle"
+        tools:text="Kharkiv HRK" />
+
+    <View
+        android:id="@+id/divider"
+        style="@style/Divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/space_x0_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/origin"
+        app:layout_constraintTop_toBottomOf="@+id/origin" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        style="@style/ArrowBottom"
+        android:layout_marginEnd="@dimen/main_space"
+        app:layout_constraintBottom_toBottomOf="@+id/origin"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/destinationTitle"
+        style="@style/BookFlightFieldTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_x_1_5"
+        android:text="@string/destination_title"
+        app:layout_constraintStart_toStartOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <TextView
+        android:id="@+id/destination"
+        style="@style/BookFlightFieldSelectableField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/main_space"
+        android:enabled="false"
+        android:text="@string/discover_new_places"
+        app:layout_constraintStart_toStartOf="@+id/destinationTitle"
+        app:layout_constraintTop_toBottomOf="@+id/destinationTitle" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        style="@style/ArrowBottom"
+        android:layout_marginEnd="@dimen/main_space"
+        app:layout_constraintBottom_toBottomOf="@+id/destination"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/divider2"
+        style="@style/Divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/space_x0_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/destination"
+        app:layout_constraintTop_toBottomOf="@+id/destination" />
+
+    <View
+        android:id="@+id/divider3"
+        style="@style/Divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/space_x0_5"
+        android:layout_marginEnd="@dimen/main_space"
+        app:layout_constraintEnd_toStartOf="@+id/divider4"
+        app:layout_constraintStart_toStartOf="@+id/departure"
+        app:layout_constraintTop_toBottomOf="@+id/departure" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        style="@style/ArrowBottom"
+        android:layout_marginEnd="@dimen/main_space"
+        app:layout_constraintBottom_toBottomOf="@+id/departure"
+        app:layout_constraintEnd_toEndOf="@+id/divider3" />
+
+    <TextView
+        android:id="@+id/departureTitle"
+        style="@style/BookFlightFieldTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_x_1_5"
+        android:text="@string/destination_title"
+        app:layout_constraintStart_toStartOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <TextView
+        android:id="@+id/departure"
+        style="@style/BookFlightFieldSelectableField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/main_space"
+        android:enabled="false"
+        android:text="@string/select_date"
+        app:layout_constraintStart_toStartOf="@+id/departureTitle"
+        app:layout_constraintTop_toBottomOf="@+id/departureTitle" />
+
+    <TextView
+        android:id="@+id/returnTitle"
+        style="@style/BookFlightFieldTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_x0_5"
+        android:layout_marginTop="@dimen/space_x_1_5"
+        android:text="@string/return_title"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        style="@style/ArrowBottom"
+        android:layout_marginEnd="@dimen/main_space"
+        app:layout_constraintBottom_toBottomOf="@+id/returnField"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/returnField"
+        style="@style/BookFlightFieldSelectableField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/main_space"
+        android:enabled="false"
+        android:text="@string/one_way"
+        app:layout_constraintStart_toStartOf="@+id/returnTitle"
+        app:layout_constraintTop_toBottomOf="@+id/departureTitle" />
+
+    <View
+        android:id="@+id/divider4"
+        style="@style/Divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/space_x0_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/returnField"
+        app:layout_constraintTop_toBottomOf="@+id/returnField" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="@dimen/main_space"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        style="@style/ArrowBottom"
+        android:layout_marginEnd="@dimen/main_space"
+        app:layout_constraintBottom_toBottomOf="@+id/passengers"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/divider5"
+        style="@style/Divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/space_x0_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/passengers"
+        app:layout_constraintTop_toBottomOf="@+id/passengers" />
+
+    <TextView
+        android:id="@+id/passengersTitle"
+        style="@style/BookFlightFieldTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_x_1_5"
+        android:text="@string/destination_title"
+        app:layout_constraintStart_toStartOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@+id/divider3" />
+
+    <TextView
+        android:id="@+id/passengers"
+        style="@style/BookFlightFieldSelectableField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/main_space"
+        android:enabled="false"
+        android:text="1 Adult"
+        app:layout_constraintStart_toStartOf="@+id/passengersTitle"
+        app:layout_constraintTop_toBottomOf="@+id/passengersTitle"
+        tools:text="1 Adult" />
+
+    <Button
+        android:id="@+id/searchFlightsBtn"
+        style="@style/SearchFlightsButton"
+        android:layout_width="0dp"
+        android:layout_marginStart="@dimen/main_space"
+        android:layout_marginTop="@dimen/main_space_x2"
+        android:layout_marginEnd="@dimen/main_space"
+        android:includeFontPadding="false"
+        android:text="@string/search_flights_btn"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider5" />
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_space_x2"
+        app:layout_constraintTop_toBottomOf="@+id/newSearchButton"
+        tools:layout_editor_absoluteX="195dp" />
+
+    <Button
+        android:id="@+id/newSearchButton"
+        style="@style/BookFlightFieldSelectableField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/main_space_x2"
+        android:background="@null"
+        android:text="@string/new_search_button"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/searchFlightsBtn"
+        app:layout_constraintStart_toStartOf="@+id/searchFlightsBtn"
+        app:layout_constraintTop_toBottomOf="@+id/searchFlightsBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

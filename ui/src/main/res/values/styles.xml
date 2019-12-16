@@ -8,4 +8,45 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ToolbarTitle">
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:fontFamily">@font/futura_pt_medium</item>
+        <item name="android:textColor">@color/toolbar_text_color</item>
+        <item name="android:textSize">@dimen/toolbar_title_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="BookFlightFieldTitle">
+        <item name="android:fontFamily">@font/futura_pt_medium</item>
+        <item name="android:textColor">@color/toolbar_text_color</item>
+        <item name="android:textSize">@dimen/form_field_title</item>
+    </style>
+
+    <style name="BookFlightFieldSelectableField">
+        <item name="android:fontFamily">@font/futura_pt_medium</item>
+        <item name="android:textColor">@color/toolbar_text_color</item>
+        <item name="android:textSize">@dimen/form_field</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:background">@color/divider</item>
+        <item name="android:alpha">0.3</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+
+    <style name="ArrowBottom">
+        <item name="android:src">@drawable/ic_bottom_arrow</item>
+        <item name="android:layout_height">@dimen/ic_bottom_arrow_height</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="SearchFlightsButton">
+        <item name="android:background">@drawable/blue_button_background</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:fontFamily">@font/futura_pt_medium</item>
+        <item name="android:textSize">@dimen/form_field</item>
+        <item name="android:textColor">@color/search_flights_button_text_color</item>
+    </style>
+
 </resources>

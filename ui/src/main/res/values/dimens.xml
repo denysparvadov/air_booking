@@ -2,4 +2,19 @@
 <resources>
     <dimen name="main_space">16dp</dimen>
     <dimen name="main_space_x2">32dp</dimen>
+
+    <dimen name="toolbar_title_size">32sp</dimen>
+
+    <dimen name="form_field_title">16sp</dimen>
+    <dimen name="form_field">20sp</dimen>
+    <dimen name="space_x0_5">8dp</dimen>
+
+    <dimen name="ic_bottom_arrow_height">14dp</dimen>
+    <dimen name="space_x_1_5">24dp</dimen>
+
+    <string-array name="spinner_array">
+        <item>Первая запись</item>
+        <item>Вторая запись</item>
+        <item>Третья запись</item>
+    </string-array>
 </resources>

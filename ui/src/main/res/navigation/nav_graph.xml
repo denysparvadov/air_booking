@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/bookFragment"
-        android:name="co.gotoinc.ui.BookFragment"
+        android:name="co.gotoinc.ui.view.book_flight.BookFragment"
         android:label="fragment_book"
         tools:layout="@layout/fragment_book" />
 </navigation>

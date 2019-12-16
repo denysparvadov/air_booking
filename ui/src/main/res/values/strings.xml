@@ -2,4 +2,12 @@
     <string name="app_name">ui</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="book_your_flight">Book your flight</string>
+    <string name="origin_title">Origin</string>
+    <string name="destination_title">Destination</string>
+    <string name="discover_new_places">Discover new places...</string>
+    <string name="select_date">Select date</string>
+    <string name="return_title">Return</string>
+    <string name="one_way">One way</string>
+    <string name="search_flights_btn">Search flights</string>
+    <string name="new_search_button">New search</string>
 </resources>
