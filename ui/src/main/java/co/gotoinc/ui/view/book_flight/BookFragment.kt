@@ -4,64 +4,65 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import co.gotoinc.core.entity.FlightEntity
 import co.gotoinc.ui.R
 import co.gotoinc.ui.base.BaseFragment
+import co.gotoinc.ui.databinding.FragmentBookBinding
+import co.gotoinc.ui.view.airports.AirportsFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
+class BookFragment : BaseFragment<BookViewModel>(), View.OnClickListener {
+    private lateinit var binding: FragmentBookBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-class BookFragment : BaseFragment<BookViewModel>() {
-    // TODO: Rename and change types of parameters
-    private
-    var param1: String? = null
-    private
-    var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.originContainer, R.id.origin -> navigateTo(
+                R.id.action_airportsFragment,
+                AirportsFragment.getOriginBundle()
+            )
+            R.id.destinationContainer, R.id.destination -> navigateTo(
+                R.id.action_airportsFragment,
+                AirportsFragment.getDestinationBundle()
+            )
+            R.id.newSearchButton -> {
+                MaterialAlertDialogBuilder(context)
+                    .setTitle(R.string.are_u_sure)
+                    .setPositiveButton(R.string.yes) { _, _ -> setData(null) }
+                    .setNegativeButton(R.string.no, null)
+                    .show()
+            }
         }
     }
 
+    override fun getLayoutId() = R.layout.fragment_book
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_book, container, false)
+        return DataBindingUtil.inflate<FragmentBookBinding>(
+            inflater,
+            getLayoutId(),
+            container,
+            false
+        )
+            .apply {
+                viewModel = this@BookFragment.viewModel
+                binding = this
+            }
+            .root
     }
-
-//    override fun onAttach(context: Context) {
-//        super.onAttach(context)
-//        if (context is OnFragmentInteractionListener) {
-//            listener = context
-//        } else {
-//            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
-//        }
-//    }
-//
-//    override fun onDetach() {
-//        super.onDetach()
-//        listener = null
-//    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        viewModel.listener = this
+        viewModel.observeFlight().observe(this, Observer(::setData))
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            BookFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun setData(it: FlightEntity?) {
+        viewModel.setData(it)
     }
 }

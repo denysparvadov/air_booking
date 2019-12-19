@@ -2,9 +2,10 @@
 <resources>
     <color name="colorPrimary">#5382F6</color>
     <color name="colorPrimaryDark">#5382F6</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#5382F6</color>
     <color name="toolbar_text_color">#000</color>
     <color name="divider">#000</color>
     <color name="search_flights_button_color">#5382F6</color>
     <color name="search_flights_button_text_color">#fff</color>
+    <color name="greyed_text_color">#B6B6B6</color>
 </resources>

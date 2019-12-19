@@ -27,7 +27,10 @@ android {
 
 dependencies {
     implementation project(':ui')
+    implementation project(':core')
     implementation project(':data')
+    implementation project(':data-network')
+    implementation project(':domain')
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -35,5 +38,6 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.1.0'
 
     implementation 'org.koin:koin-android:1.0.0'
+    implementation 'org.koin:koin-core:1.0.0'
     implementation 'org.koin:koin-android-viewmodel:1.0.0'
 }

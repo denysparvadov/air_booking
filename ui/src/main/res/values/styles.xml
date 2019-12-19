@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -42,11 +42,22 @@
     </style>
 
     <style name="SearchFlightsButton">
+        <item name="android:letterSpacing">0.05</item>
         <item name="android:background">@drawable/blue_button_background</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:fontFamily">@font/futura_pt_medium</item>
         <item name="android:textSize">@dimen/form_field</item>
-        <item name="android:textColor">@color/search_flights_button_text_color</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="NewSearchButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:letterSpacing">0.05</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="android:background">@drawable/blue_button_background</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:fontFamily">@font/futura_pt_medium</item>
+        <item name="android:textSize">@dimen/form_field</item>
+        <item name="android:textColor">@color/toolbar_text_color</item>
     </style>
 
 </resources>

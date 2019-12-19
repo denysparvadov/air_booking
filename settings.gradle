@@ -1,2 +1,2 @@
-include ':app', ':ui', ':di', ':data', ':domain'
+include ':app', ':ui', ':di', ':data', ':domain', ':core', ':data-network'
 rootProject.name='GoToAir'

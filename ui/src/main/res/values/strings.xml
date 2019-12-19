@@ -10,4 +10,10 @@
     <string name="one_way">One way</string>
     <string name="search_flights_btn">Search flights</string>
     <string name="new_search_button">New search</string>
+    <string name="leaving_from">Leaving from</string>
+    <string name="search_hint">Search</string>
+    <string name="select">Select</string>
+    <string name="are_u_sure">Are you sure?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

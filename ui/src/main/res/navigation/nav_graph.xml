@@ -10,4 +10,16 @@
         android:name="co.gotoinc.ui.view.book_flight.BookFragment"
         android:label="fragment_book"
         tools:layout="@layout/fragment_book" />
+    <fragment
+        android:id="@+id/airportsFragment"
+        android:name="co.gotoinc.ui.view.airports.AirportsFragment"
+        android:label="AirportsFragment"
+        tools:layout="@layout/fragment_airports" />
+    <action
+        android:id="@+id/action_airportsFragment"
+        app:destination="@id/airportsFragment"
+        app:enterAnim="@anim/right_in"
+        app:exitAnim="@anim/left_out"
+        app:popEnterAnim="@anim/left_in"
+        app:popExitAnim="@anim/right_out" />
 </navigation>
