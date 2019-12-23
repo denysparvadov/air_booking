@@ -2,11 +2,12 @@ package co.gotoinc.di
 
 import co.gotoinc.core.Logger
 import co.gotoinc.data.domain.book_flight.AirPortsInteractorImpl
-import co.gotoinc.domain.live.LiveFlightEntity
 import co.gotoinc.data_network.aitports.AirPortsApiImpl
 import co.gotoinc.data_network.aitports.Networkmanager
+import co.gotoinc.domain.live.LiveFlightEntity
 import co.gotoinc.ui.view.airports.AirportsViewModel
 import co.gotoinc.ui.view.book_flight.BookViewModel
+import co.gotoinc.ui.view.flight_date.FlightDateViewModel
 import co.gotoinc.ui.view.passengers.PassengersViewModel
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
@@ -20,5 +21,6 @@ val appModule = module {
 
     viewModel { BookViewModel(get()) }
     viewModel { PassengersViewModel(get()) }
+    viewModel { FlightDateViewModel() }
     viewModel { AirportsViewModel(get(), AirPortsInteractorImpl(AirPortsApiImpl(get()))) }
 }

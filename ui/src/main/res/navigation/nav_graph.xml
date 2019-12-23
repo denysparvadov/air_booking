@@ -9,13 +9,16 @@
         android:id="@+id/bookFragment"
         android:name="co.gotoinc.ui.view.book_flight.BookFragment"
         android:label="fragment_book"
-        tools:layout="@layout/fragment_book" >
+        tools:layout="@layout/fragment_book">
         <action
             android:id="@+id/action_bookFragment_to_airportsFragment"
             app:destination="@id/airportsFragment" />
         <action
             android:id="@+id/action_bookFragment_to_passengersFragment"
             app:destination="@id/passengersFragment" />
+        <action
+            android:id="@+id/action_bookFragment_to_flightDateFragment"
+            app:destination="@id/flightDateFragment" />
     </fragment>
     <fragment
         android:id="@+id/airportsFragment"
@@ -43,5 +46,16 @@
         app:exitAnim="@anim/left_out"
         app:popEnterAnim="@anim/left_in"
         app:popExitAnim="@anim/right_out" />
-
+    <fragment
+        android:id="@+id/flightDateFragment"
+        android:name="co.gotoinc.ui.view.flight_date.FlightDateFragment"
+        android:label="FlightDateFragment"
+        tools:layout="@layout/fragment_flight_date" />
+    <action
+        android:id="@+id/action_flightDateFragment"
+        app:destination="@id/flightDateFragment"
+        app:enterAnim="@anim/right_in"
+        app:exitAnim="@anim/left_out"
+        app:popEnterAnim="@anim/left_in"
+        app:popExitAnim="@anim/right_out" />
 </navigation>

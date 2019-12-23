@@ -8,7 +8,7 @@ import co.gotoinc.ui.base.BaseViewModel
 
 class PassengersViewModel(private val liveFlightEntity: LiveFlightEntity) : BaseViewModel() {
     lateinit var clickListener: View.OnClickListener
-    val value = liveFlightEntity.value?.passengers!!
+    val value = liveFlightEntity.value?.passengers!!.copy()
     var passengersEntity = ObservableField(value)
 
     fun add(field: PassengersEntity.Fields) {

@@ -14,4 +14,6 @@ class FlightEntity {
         destination?.let { return@run "${destination?.city} ${destination?.code}" }
         ""
     }
+
+    fun isReadyToSelectDates() = origin != null && destination != null
 }

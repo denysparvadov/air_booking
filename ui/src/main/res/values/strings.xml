@@ -25,6 +25,9 @@
     <string name="infants_title">0-2</string>
     <string name="infants">Infants</string>
     <string name="apply_changes">Apply changes</string>
+    <string name="departure_title">Departue</string>
+    <string name="please_select_destination_and_origin">Please select destination and origin</string>
+    <string name="flight_date">Flight date</string>
 
     <plurals name="adults_plural">
         <item quantity="one">%d Adult</item>

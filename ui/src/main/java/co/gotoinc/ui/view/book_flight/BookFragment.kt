@@ -11,7 +11,6 @@ import co.gotoinc.ui.R
 import co.gotoinc.ui.base.BaseFragment
 import co.gotoinc.ui.databinding.FragmentBookBinding
 import co.gotoinc.ui.view.airports.AirportsFragment
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class BookFragment : BaseFragment<BookViewModel>(), View.OnClickListener {
     private lateinit var binding: FragmentBookBinding
@@ -27,13 +26,19 @@ class BookFragment : BaseFragment<BookViewModel>(), View.OnClickListener {
                 AirportsFragment.getDestinationBundle()
             )
             R.id.newSearchButton -> {
-                MaterialAlertDialogBuilder(context)
-                    .setTitle(R.string.are_u_sure)
-                    .setPositiveButton(R.string.yes) { _, _ -> setData(FlightEntity()) }
-                    .setNegativeButton(R.string.no, null)
-                    .show()
+                showMaterialDialog(title = R.string.are_u_sure, ok = { setData(FlightEntity()) })
             }
             R.id.passengersContainer -> navigateTo(R.id.action_passengersTitle)
+            R.id.departureContainer -> {
+                if (!viewModel.isReadyToSelectDate()) {
+                    showSimpleMaterialDialog(R.string.please_select_destination_and_origin)
+                } else navigateTo(R.id.action_flightDateFragment)
+            }
+            R.id.returnContainer -> {
+                if (!viewModel.isReadyToSelectDate()) {
+                    showSimpleMaterialDialog(R.string.please_select_destination_and_origin)
+                } else navigateTo(R.id.action_flightDateFragment)
+            }
         }
     }
 
@@ -52,8 +57,7 @@ class BookFragment : BaseFragment<BookViewModel>(), View.OnClickListener {
         ).apply {
             viewModel = this@BookFragment.viewModel
             binding = this
-        }
-            .root
+        }.root
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

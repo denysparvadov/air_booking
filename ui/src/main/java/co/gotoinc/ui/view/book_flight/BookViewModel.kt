@@ -10,11 +10,12 @@ class BookViewModel(
     private val liveFlightEntity: LiveFlightEntity
 ) : BaseViewModel() {
     lateinit var listener: View.OnClickListener
-    var flightEntity: ObservableField<FlightEntity> = ObservableField(FlightEntity())
+    var _flightEntity: ObservableField<FlightEntity> = ObservableField(FlightEntity())
+    fun isReadyToSelectDate() = _flightEntity.get()?.isReadyToSelectDates() ?: false
     fun observeFlight() = liveFlightEntity
 
     fun setData(it: FlightEntity?) {
-        flightEntity.set(it ?: FlightEntity())
+        _flightEntity.set(it ?: FlightEntity())
     }
 
     fun setDisplayPassengers(str: String) {

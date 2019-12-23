@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/main_space"
                     android:hint="@string/select"
-                    android:text='@{viewModel.flightEntity.displayOrigin}'
+                    android:text='@{viewModel._flightEntity.displayOrigin}'
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -98,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/main_space"
                     android:hint="@string/discover_new_places"
-                    android:text='@{viewModel.flightEntity.displayDestination}'
+                    android:text='@{viewModel._flightEntity.displayDestination}'
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -120,44 +120,56 @@
                     app:layout_constraintTop_toBottomOf="@+id/destination" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <View
-                android:id="@+id/divider3"
-                style="@style/Divider"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="@dimen/space_x0_5"
-                android:layout_marginEnd="@dimen/main_space"
-                app:layout_constraintEnd_toStartOf="@+id/divider4"
-                app:layout_constraintStart_toStartOf="@+id/departure"
-                app:layout_constraintTop_toBottomOf="@+id/departure" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                style="@style/ArrowBottom"
-                android:layout_marginEnd="@dimen/main_space"
-                app:layout_constraintBottom_toBottomOf="@+id/departure"
-                app:layout_constraintEnd_toEndOf="@+id/divider3" />
-
             <TextView
                 android:id="@+id/departureTitle"
                 style="@style/BookFlightFieldTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_x_1_5"
-                android:text="@string/destination_title"
+                android:text="@string/departure_title"
                 app:layout_constraintStart_toStartOf="@+id/destinationContainer"
                 app:layout_constraintTop_toBottomOf="@+id/destinationContainer" />
 
-            <TextView
-                android:id="@+id/departure"
-                style="@style/BookFlightFieldSelectableField"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/departureContainer"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/main_space"
-                android:enabled="false"
-                android:hint="@string/select_date"
+                android:background="?attr/selectableItemBackground"
+                android:onClick="@{viewModel.listener::onClick}"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="@+id/departureTitle"
-                app:layout_constraintTop_toBottomOf="@+id/departureTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/departureTitle">
+
+                <TextView
+                    android:id="@+id/departure"
+                    style="@style/BookFlightFieldSelectableField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/main_space"
+                    android:enabled="false"
+                    android:hint="@string/select_date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/divider3"
+                    style="@style/Divider"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/space_x0_5"
+                    android:layout_marginEnd="@dimen/main_space"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/departure"
+                    app:layout_constraintTop_toBottomOf="@+id/departure" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    style="@style/ArrowBottom"
+                    android:layout_marginEnd="@dimen/main_space"
+                    app:layout_constraintBottom_toBottomOf="@+id/departure"
+                    app:layout_constraintEnd_toEndOf="@+id/divider3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <TextView
                 android:id="@+id/returnTitle"
@@ -170,33 +182,45 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/destinationContainer" />
 
-            <ImageView
-                android:id="@+id/imageView4"
-                style="@style/ArrowBottom"
-                android:layout_marginEnd="@dimen/main_space"
-                app:layout_constraintBottom_toBottomOf="@+id/returnField"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <TextView
-                android:id="@+id/returnField"
-                style="@style/BookFlightFieldSelectableField"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/main_space"
-                android:enabled="false"
-                android:hint="@string/one_way"
-                app:layout_constraintStart_toStartOf="@+id/returnTitle"
-                app:layout_constraintTop_toBottomOf="@+id/departureTitle" />
-
-            <View
-                android:id="@+id/divider4"
-                style="@style/Divider"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/returnContainer"
                 android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="@dimen/space_x0_5"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:onClick="@{viewModel.listener::onClick}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/returnField"
-                app:layout_constraintTop_toBottomOf="@+id/returnField" />
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/returnTitle">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    style="@style/ArrowBottom"
+                    android:layout_marginEnd="@dimen/main_space"
+                    app:layout_constraintBottom_toBottomOf="@+id/returnField"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/returnField"
+                    style="@style/BookFlightFieldSelectableField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/main_space"
+                    android:enabled="false"
+                    android:hint="@string/one_way"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/divider4"
+                    style="@style/Divider"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/space_x0_5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/returnField"
+                    app:layout_constraintTop_toBottomOf="@+id/returnField" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"
@@ -214,7 +238,7 @@
                 android:layout_marginTop="@dimen/space_x_1_5"
                 android:text="@string/passengers_title"
                 app:layout_constraintStart_toStartOf="@+id/destinationContainer"
-                app:layout_constraintTop_toBottomOf="@+id/divider3" />
+                app:layout_constraintTop_toBottomOf="@+id/departureContainer" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/passengersContainer"

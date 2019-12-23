@@ -55,6 +55,10 @@ class MainActivity : AppCompatActivity(), LifecycleOwner, AirplaneProgressBarInt
                 backButtonToolbar.isInvisible = false
                 titleTextViewToolbar.setText(R.string.add_passengers)
             }
+            R.id.flightDateFragment -> {
+                backButtonToolbar.isInvisible = false
+                titleTextViewToolbar.setText(R.string.flight_date)
+            }
         }
     }
 }

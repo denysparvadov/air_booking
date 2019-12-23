@@ -1,11 +1,10 @@
 package co.gotoinc.core.entity
 
-class PassengersEntity {
-
-    var adults = 1
-    var childs = 0
-    var infants = 0
-
+data class PassengersEntity(
+    var adults: Int = 1,
+    var childs: Int = 0,
+    var infants: Int = 0
+) {
     fun increment(field: Fields) {
         when (field) {
             Fields.ADULTS -> if (adults < 10) adults++
