@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
     android:orientation="vertical"
     android:paddingStart="@dimen/main_space"
     android:paddingEnd="@dimen/main_space">
@@ -17,9 +18,9 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/titleTextViewToolbar"
+        style="@style/ToolbarTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/main_space_x2"
-        style="@style/ToolbarTitle"
         tools:text="Leaving from" />
 </LinearLayout>

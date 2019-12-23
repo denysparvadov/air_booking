@@ -16,4 +16,10 @@ class BookViewModel(
     fun setData(it: FlightEntity?) {
         flightEntity.set(it ?: FlightEntity())
     }
+
+    fun setDisplayPassengers(str: String) {
+        displayPassengers.set(str)
+    }
+
+    var displayPassengers: ObservableField<String> = ObservableField<String>()
 }

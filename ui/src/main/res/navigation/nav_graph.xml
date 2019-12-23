@@ -9,7 +9,14 @@
         android:id="@+id/bookFragment"
         android:name="co.gotoinc.ui.view.book_flight.BookFragment"
         android:label="fragment_book"
-        tools:layout="@layout/fragment_book" />
+        tools:layout="@layout/fragment_book" >
+        <action
+            android:id="@+id/action_bookFragment_to_airportsFragment"
+            app:destination="@id/airportsFragment" />
+        <action
+            android:id="@+id/action_bookFragment_to_passengersFragment"
+            app:destination="@id/passengersFragment" />
+    </fragment>
     <fragment
         android:id="@+id/airportsFragment"
         android:name="co.gotoinc.ui.view.airports.AirportsFragment"
@@ -22,4 +29,19 @@
         app:exitAnim="@anim/left_out"
         app:popEnterAnim="@anim/left_in"
         app:popExitAnim="@anim/right_out" />
+
+    <fragment
+        android:id="@+id/passengersFragment"
+        android:name="co.gotoinc.ui.view.passengers.PassengersFragment"
+        android:label="PassengersFragment"
+        tools:layout="@layout/fragment_passengers" />
+
+    <action
+        android:id="@+id/action_passengersTitle"
+        app:destination="@id/passengersFragment"
+        app:enterAnim="@anim/right_in"
+        app:exitAnim="@anim/left_out"
+        app:popEnterAnim="@anim/left_in"
+        app:popExitAnim="@anim/right_out" />
+
 </navigation>

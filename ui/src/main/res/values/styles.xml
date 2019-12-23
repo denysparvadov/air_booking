@@ -22,6 +22,10 @@
         <item name="android:textSize">@dimen/form_field_title</item>
     </style>
 
+    <style name="AddPassengersFieldTitle" parent="BookFlightFieldTitle">
+        <item name="android:textColor">@color/greyed_text_color</item>
+    </style>
+
     <style name="BookFlightFieldSelectableField">
         <item name="android:fontFamily">@font/futura_pt_medium</item>
         <item name="android:textColor">@color/toolbar_text_color</item>
@@ -43,8 +47,11 @@
 
     <style name="SearchFlightsButton">
         <item name="android:letterSpacing">0.05</item>
-        <item name="android:background">@drawable/blue_button_background</item>
-        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@color/search_flights_button_color</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:paddingBottom">12dp</item>
         <item name="android:fontFamily">@font/futura_pt_medium</item>
         <item name="android:textSize">@dimen/form_field</item>
         <item name="android:textColor">@android:color/white</item>
@@ -58,6 +65,15 @@
         <item name="android:fontFamily">@font/futura_pt_medium</item>
         <item name="android:textSize">@dimen/form_field</item>
         <item name="android:textColor">@color/toolbar_text_color</item>
+    </style>
+
+    <style name="BlueCircleBackground">
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:textColor">@color/add_passengers_textview_color_states</item>
+        <item name="android:background">@drawable/blue_circle_background</item>
     </style>
 
 </resources>

@@ -16,4 +16,28 @@
     <string name="are_u_sure">Are you sure?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="passengers_title">Passengers</string>
+    <string name="add_passengers">Add passengers</string>
+    <string name="adults_title">16+</string>
+    <string name="adults">Adults</string>
+    <string name="childs_title">2-14</string>
+    <string name="childs">Childs</string>
+    <string name="infants_title">0-2</string>
+    <string name="infants">Infants</string>
+    <string name="apply_changes">Apply changes</string>
+
+    <plurals name="adults_plural">
+        <item quantity="one">%d Adult</item>
+        <item quantity="other">%d Adults</item>
+    </plurals>
+
+    <plurals name="childs_plural">
+        <item quantity="one">%d Child</item>
+        <item quantity="other">%d Childs</item>
+    </plurals>
+
+    <plurals name="infants_plural">
+        <item quantity="one">%d Infant</item>
+        <item quantity="other">%d Infants</item>
+    </plurals>
 </resources>

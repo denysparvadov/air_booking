@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="co.gotoinc.ui.view.passengers.PassengersViewModel" />
+
+        <import type="co.gotoinc.core.entity.PassengersEntity.Fields" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/adultsTitle"
+            style="@style/AddPassengersFieldTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_space"
+            android:layout_marginTop="@dimen/space_x_1_5"
+            android:text="@string/adults_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/adults"
+            style="@style/BookFlightFieldSelectableField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/main_space"
+            android:enabled="false"
+            android:text="@string/adults"
+            app:layout_constraintStart_toStartOf="@id/adultsTitle"
+            app:layout_constraintTop_toBottomOf="@id/adultsTitle" />
+
+        <View
+            android:id="@+id/divider"
+            style="@style/Divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/space_x0_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/adults"
+            app:layout_constraintTop_toBottomOf="@+id/adults" />
+
+        <TextView
+            android:id="@+id/childsTitle"
+            style="@style/AddPassengersFieldTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_x_1_5"
+            android:text="@string/childs_title"
+            app:layout_constraintStart_toStartOf="@id/adultsTitle"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+        <TextView
+            android:id="@+id/childs"
+            style="@style/BookFlightFieldSelectableField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/main_space"
+            android:enabled="false"
+            android:text="@string/childs"
+            app:layout_constraintStart_toStartOf="@id/childsTitle"
+            app:layout_constraintTop_toBottomOf="@id/childsTitle" />
+
+        <View
+            android:id="@+id/divider2"
+            style="@style/Divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/space_x0_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/childs"
+            app:layout_constraintTop_toBottomOf="@+id/childs" />
+
+        <TextView
+            android:id="@+id/infantsTitle"
+            style="@style/AddPassengersFieldTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_x_1_5"
+            android:text="@string/infants_title"
+            app:layout_constraintStart_toStartOf="@id/adultsTitle"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+        <TextView
+            android:id="@+id/infants"
+            style="@style/BookFlightFieldSelectableField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/main_space"
+            android:enabled="false"
+            android:text="@string/infants"
+            app:layout_constraintStart_toStartOf="@id/infantsTitle"
+            app:layout_constraintTop_toBottomOf="@id/infantsTitle" />
+
+        <View
+            android:id="@+id/divider3"
+            style="@style/Divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/space_x0_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/infants"
+            app:layout_constraintTop_toBottomOf="@+id/infants" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/applyChangesButton"
+            style="@style/SearchFlightsButton"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/main_space"
+            android:layout_marginTop="@dimen/main_space_x2"
+            android:layout_marginEnd="@dimen/main_space"
+            android:includeFontPadding="false"
+            android:onClick="@{viewModel.clickListener::onClick}"
+            android:text="@string/apply_changes"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider3" />
+
+        <TextView
+            android:id="@+id/adultsPlusButton"
+            style="@style/BlueCircleBackground"
+            android:layout_marginEnd="@dimen/main_space"
+            android:enabled="@{10 > viewModel.passengersEntity.adults}"
+            android:onClick='@{() -> viewModel.add(Fields.ADULTS)}'
+            android:text="+"
+            app:layout_constraintBottom_toBottomOf="@+id/adults"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/adults" />
+
+        <TextView
+            android:id="@+id/adultsCount"
+            style="@style/BookFlightFieldSelectableField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/main_space"
+            android:gravity="center"
+            android:minEms="1"
+            android:text='@{String.valueOf(viewModel.passengersEntity.adults)}'
+            app:layout_constraintBottom_toBottomOf="@+id/adultsPlusButton"
+            app:layout_constraintEnd_toStartOf="@+id/adultsPlusButton"
+            app:layout_constraintTop_toTopOf="@+id/adultsPlusButton"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/adultsMinusButton"
+            style="@style/BlueCircleBackground"
+            android:layout_marginEnd="@dimen/main_space"
+            android:enabled="@{viewModel.passengersEntity.adults > 0}"
+            android:onClick='@{() -> viewModel.minus(Fields.ADULTS)}'
+            android:text="-"
+            app:layout_constraintBottom_toBottomOf="@+id/adultsPlusButton"
+            app:layout_constraintEnd_toStartOf="@+id/adultsCount"
+            app:layout_constraintTop_toTopOf="@+id/adultsPlusButton" />
+
+        <TextView
+            android:id="@+id/childsPlusButton"
+            style="@style/BlueCircleBackground"
+            android:layout_marginEnd="@dimen/main_space"
+            android:enabled="@{10 > viewModel.passengersEntity.childs}"
+            android:onClick='@{() -> viewModel.add(Fields.CHILDS)}'
+            android:text="+"
+            app:layout_constraintBottom_toBottomOf="@+id/childs"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/childs" />
+
+        <TextView
+            android:id="@+id/childsCount"
+            style="@style/BookFlightFieldSelectableField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/main_space"
+            android:gravity="center"
+            android:minEms="1"
+            android:text='@{String.valueOf(viewModel.passengersEntity.childs)}'
+            app:layout_constraintBottom_toBottomOf="@+id/childsPlusButton"
+            app:layout_constraintEnd_toStartOf="@+id/childsPlusButton"
+            app:layout_constraintTop_toTopOf="@+id/childsPlusButton"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/childsMinusButton"
+            style="@style/BlueCircleBackground"
+            android:layout_marginEnd="@dimen/main_space"
+            android:enabled="@{viewModel.passengersEntity.childs > 0}"
+            android:onClick='@{() -> viewModel.minus(Fields.CHILDS)}'
+            android:text="-"
+            app:layout_constraintBottom_toBottomOf="@+id/childsPlusButton"
+            app:layout_constraintEnd_toStartOf="@+id/childsCount"
+            app:layout_constraintTop_toTopOf="@+id/childsPlusButton" />
+
+
+        <TextView
+            android:id="@+id/infantsPlusButton"
+            style="@style/BlueCircleBackground"
+            android:layout_marginEnd="@dimen/main_space"
+            android:enabled="@{10 > viewModel.passengersEntity.infants}"
+            android:onClick='@{() -> viewModel.add(Fields.INFANTS)}'
+            android:text="+"
+            app:layout_constraintBottom_toBottomOf="@+id/infants"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/infants" />
+
+        <TextView
+            android:id="@+id/infantsCount"
+            style="@style/BookFlightFieldSelectableField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/main_space"
+            android:gravity="center"
+            android:minEms="1"
+            android:text='@{String.valueOf(viewModel.passengersEntity.infants)}'
+            app:layout_constraintBottom_toBottomOf="@+id/infantsPlusButton"
+            app:layout_constraintEnd_toStartOf="@+id/infantsPlusButton"
+            app:layout_constraintTop_toTopOf="@+id/infantsPlusButton"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/infantsMinusButton"
+            style="@style/BlueCircleBackground"
+            android:layout_marginEnd="@dimen/main_space"
+            android:enabled="@{viewModel.passengersEntity.infants > 0}"
+            android:onClick='@{() -> viewModel.minus(Fields.INFANTS)}'
+            android:text="-"
+            app:layout_constraintBottom_toBottomOf="@+id/infantsPlusButton"
+            app:layout_constraintEnd_toStartOf="@+id/infantsCount"
+            app:layout_constraintTop_toTopOf="@+id/infantsPlusButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

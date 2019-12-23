@@ -3,6 +3,7 @@ package co.gotoinc.core.entity
 class FlightEntity {
     var origin: Airport? = null
     var destination: Airport? = null
+    var passengers = PassengersEntity()
 
     fun getDisplayOrigin() = run {
         origin?.let { return@run "${origin?.city} ${origin?.code}" }

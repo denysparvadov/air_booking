@@ -13,6 +13,8 @@ import co.gotoinc.ui.view.airports.AirportsFragment
 import co.gotoinc.ui.view.airports.AirportsViewModel
 import co.gotoinc.ui.view.book_flight.BookFragment
 import co.gotoinc.ui.view.book_flight.BookViewModel
+import co.gotoinc.ui.view.passengers.PassengersFragment
+import co.gotoinc.ui.view.passengers.PassengersViewModel
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.getViewModel
 
@@ -25,6 +27,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel> : Fragment() {
             return when (javaClass) {
                 BookFragment::class.java -> getViewModel<BookViewModel>()
                 AirportsFragment::class.java -> getViewModel<AirportsViewModel>()
+                PassengersFragment::class.java -> getViewModel<PassengersViewModel>()
                 else -> throw IllegalArgumentException()
             } as ViewModel
         }

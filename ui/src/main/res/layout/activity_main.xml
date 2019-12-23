@@ -7,10 +7,10 @@
     android:fillViewport="true">
 
     <RelativeLayout
-        android:translationZ="6dp"
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:translationZ="6dp"
         android:visibility="gone"
         tools:visibility="visible">
 
@@ -41,7 +41,7 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="enterAlways|scroll">
+            app:layout_scrollFlags="noScroll">
 
             <include
                 android:id="@+id/toolbar"

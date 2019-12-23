@@ -3,6 +3,7 @@ package co.gotoinc.domain.live
 import androidx.lifecycle.MutableLiveData
 import co.gotoinc.core.entity.Airport
 import co.gotoinc.core.entity.FlightEntity
+import co.gotoinc.core.entity.PassengersEntity
 
 class LiveFlightEntity(val flightEntity: FlightEntity = FlightEntity()) :
     MutableLiveData<FlightEntity>() {
@@ -23,5 +24,8 @@ class LiveFlightEntity(val flightEntity: FlightEntity = FlightEntity()) :
     override fun setValue(value: FlightEntity?) {
     }
 
-
+    fun updatePassengers(passengersEntity: PassengersEntity) {
+        flightEntity.passengers = passengersEntity
+        super.setValue(flightEntity)
+    }
 }

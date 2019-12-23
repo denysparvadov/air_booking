@@ -51,6 +51,10 @@ class MainActivity : AppCompatActivity(), LifecycleOwner, AirplaneProgressBarInt
                 backButtonToolbar.isInvisible = false
                 titleTextViewToolbar.setText(R.string.leaving_from)
             }
+            R.id.passengersFragment -> {
+                backButtonToolbar.isInvisible = false
+                titleTextViewToolbar.setText(R.string.add_passengers)
+            }
         }
     }
 }
